@@ -1,5 +1,10 @@
 require_relative "board.rb"
 require_relative "pawn.rb"
+require_relative "queen.rb"
+require_relative "rook.rb"
+require_relative "bishop.rb"
+require_relative "knight.rb"
+require_relative "king.rb"
 
 class Display
 
@@ -8,8 +13,8 @@ class Display
     end
 
     def render
-        p '---------------'
-        @board.rows.each do |row|
+        p '  0 1 2 3 4 5 6 7'
+        @board.rows.each.with_index do |row, i|
             string = ""
             row.each do |element|
                 if element.is_a?(Piece)
@@ -19,7 +24,7 @@ class Display
                 end
 
             end
-            p string
+            p "#{i} " + string 
 
         end
         p '---------------'
@@ -30,13 +35,9 @@ end
 board = Board.new
 display = Display.new(board)
 
-pawn1 = Pawn.new("w",0, board)
-pawn2 = Pawn.new("w",0, board)
-
-board.add_piece(pawn1, [1,5])
-board.add_piece(pawn2, [2,4])
+board.set_board
+display.render
+board.move_piece([6,3], [4,3])
 display.render
 
-board.move_piece(pawn1, [1,5],[2,6])
-display.render
 
