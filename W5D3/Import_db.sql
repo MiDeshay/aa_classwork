@@ -3,7 +3,7 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE users(
     id INTEGER PRIMARY KEY,
     fname TEXT NOT NULL,
-    lname TEXT NOT NULL,
+    lname TEXT NOT NULL
 
 );
 
@@ -22,7 +22,7 @@ CREATE TABLE question_follows(
     question_id INTEGER NOT NULL, 
 
     FOREIGN KEY(user_id) REFERENCES users(id),
-    FOREIGN KEY(question_id) REFERENCES questions(id),
+    FOREIGN KEY(question_id) REFERENCES questions(id)
 );
 
 CREATE TABLE replies(
@@ -34,7 +34,7 @@ CREATE TABLE replies(
 
     FOREIGN KEY(user_id) REFERENCES users(id),
     FOREIGN KEY(question_id) REFERENCES questions(id),
-    FOREIGN KEY(parent_id) REFERENCES replies(parent_id)
+    FOREIGN KEY(parent_id) REFERENCES replies(id)
 );
 
 CREATE TABLE question_likes(
@@ -44,21 +44,21 @@ CREATE TABLE question_likes(
     question_like BOOLEAN,
 
     FOREIGN KEY(user_id) REFERENCES users(id),
-    FOREIGN KEY(question_id) REFERENCES questions(id),
+    FOREIGN KEY(question_id) REFERENCES questions(id)
 
-)
+);
 
 INSERT INTO 
-    users(fname, lname)
+    users(id, fname, lname)
 VALUES
-    ('Michael', 'Deshay')
-    ('Andrew', 'Roellig');
+    (0, 'Michael', 'Deshay'),
+    (1, 'Andrew', 'Roellig');
 
 
 INSERT INTO
-    questions(title, body, associated_author_id)
+    questions(id, title, body, user_id)
 VALUES
-    ('just wondering', 'what color is the sky?', 1);
+    (0, 'just wondering', 'what color is the sky?', 1);
 
 
 INSERT INTO
@@ -67,9 +67,15 @@ VALUES
     (1, 0);
 
 INSERT INTO
-    replies(body, user_id, question_id, parent_id)
+    replies(id, body, user_id, question_id, parent_id)
 VALUES
-    ()
+    (0, 'the sky is blue', 0, 0, null),
+    (1, 'thanks', 1, 0, 0);
+
+INSERT INTO
+    question_likes(user_id, question_id, question_like)
+VALUES
+    (0, 0, TRUE);
 
 
 
