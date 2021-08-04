@@ -66,5 +66,7 @@ class User
     end
 end
 
+##
+
 Question.all
 p User.all
