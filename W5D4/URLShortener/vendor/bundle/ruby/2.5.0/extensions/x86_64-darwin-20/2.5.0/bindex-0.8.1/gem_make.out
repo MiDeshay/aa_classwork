@@ -1,0 +1,15 @@
+current directory: /Users/davidrodriguez/Desktop/gitstuff/aa_classwork/W5D4/URLShortener/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/davidrodriguez/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20210805-87365-5tokxq.rb extconf.rb
+creating Makefile
+
+current directory: /Users/davidrodriguez/Desktop/gitstuff/aa_classwork/W5D4/URLShortener/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/davidrodriguez/Desktop/gitstuff/aa_classwork/W5D4/URLShortener/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/davidrodriguez/Desktop/gitstuff/aa_classwork/W5D4/URLShortener/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20210805-87365-1glkzfw/skiptrace/internal

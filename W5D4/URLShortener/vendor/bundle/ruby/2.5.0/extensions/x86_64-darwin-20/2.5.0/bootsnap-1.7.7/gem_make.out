@@ -1,0 +1,15 @@
+current directory: /Users/davidrodriguez/Desktop/gitstuff/aa_classwork/W5D4/URLShortener/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.7.7/ext/bootsnap
+/Users/davidrodriguez/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20210805-87365-1a2i82s.rb extconf.rb
+creating Makefile
+
+current directory: /Users/davidrodriguez/Desktop/gitstuff/aa_classwork/W5D4/URLShortener/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.7.7/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/davidrodriguez/Desktop/gitstuff/aa_classwork/W5D4/URLShortener/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.7.7/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/davidrodriguez/Desktop/gitstuff/aa_classwork/W5D4/URLShortener/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.7.7/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20210805-87365-gc12zw/bootsnap
