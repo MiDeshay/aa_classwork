@@ -4,7 +4,9 @@
 
 <% @cats.each do |cat| %>
 <li>
-<%= render 'cat', cat: cat, page: :index %>
+<a href= "<%= cat_url(cat) %>">
+<%= cat.name %>
+</a>
 </li>
 <% end %>
 

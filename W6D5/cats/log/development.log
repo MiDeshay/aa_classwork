@@ -755,3 +755,89 @@ ActionView::MissingTemplate (Missing template cats/show, application/show with {
 ):
   
 app/controllers/cats_controller.rb:10:in `show'
+Started GET "/cats" for ::1 at 2021-08-13 15:02:04 -0700
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldeshay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (16.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (58.6ms)
+Completed 200 OK in 435ms (Views: 392.1ms | ActiveRecord: 31.9ms)
+
+
+Started GET "/cats/1" for ::1 at 2021-08-13 15:02:08 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (2.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_cat.html.erb (2.1ms)
+  Rendered cats/show.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 129ms (Views: 119.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/cats/show.css" for ::1 at 2021-08-13 15:02:08 -0700
+Processing by CatsController#show as CSS
+  Parameters: {"id"=>"show"}
+  [1m[36mCat Load (2.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::MissingTemplate (Missing template cats/show, application/show with {:locale=>[:en], :formats=>[:css], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/michaeldeshay/aa_classwork/W6D5/cats/app/views"
+):
+  
+app/controllers/cats_controller.rb:10:in `show'
+Started GET "/cats/3" for ::1 at 2021-08-13 15:02:15 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_cat.html.erb (1.4ms)
+  Rendered cats/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 68ms (Views: 65.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats/show.css" for ::1 at 2021-08-13 15:02:15 -0700
+Processing by CatsController#show as CSS
+  Parameters: {"id"=>"show"}
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template cats/show, application/show with {:locale=>[:en], :formats=>[:css], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/michaeldeshay/aa_classwork/W6D5/cats/app/views"
+):
+  
+app/controllers/cats_controller.rb:10:in `show'
+Started GET "/cats/2" for ::1 at 2021-08-13 15:02:18 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 75ms (Views: 72.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats/show.css" for ::1 at 2021-08-13 15:02:18 -0700
+Processing by CatsController#show as CSS
+  Parameters: {"id"=>"show"}
+  [1m[36mCat Load (1.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::MissingTemplate (Missing template cats/show, application/show with {:locale=>[:en], :formats=>[:css], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/michaeldeshay/aa_classwork/W6D5/cats/app/views"
+):
+  
+app/controllers/cats_controller.rb:10:in `show'
