@@ -1,21 +1,23 @@
-<h2>Create a cat</h2>
+<h2>Update a cat</h2>
 
-<form action= "<%= cats_url%>" method="POST">
-<input>
+<form action= "<%= cat_url(@cat)%>" method="POST">
+<input type="hidden" name="_method" value="PATCH">
 
 <label> Name: 
-    <input type="text" name="cat[name]">
+    <input type="text" name="cat[name]" value="<%= @cat.name%>">
 </label>
 <br>
 <label> Sex: 
     <br>
     <label>
-    <input type="radio" name="cat[sex]" value="M">
+    <input type="radio" name="cat[sex]" value="M" 
+    <%= @cat.sex == "M" ? "checked" : "" %>>
     Male
     </label>
     <br>
     <label>
-    <input type="radio" name="cat[sex]" value="F">
+    <input type="radio" name="cat[sex]" value="F"
+    <%= @cat.sex == "F" ? "checked" : "" %>>
     Female
     </label>
     <br>
@@ -24,23 +26,33 @@
 
 <label> Color: 
     <select name="cat[color]">
-        <option disabled selected>Select A Color</option>
-        <option value="Red">Red</option>
-        <option value="Green">Green</option>
-        <option value="Yellow">Yellow</option>
-        <option value="Blue">Blue</option>
-        <option value="Violet">Violet</option>
+        <option disabled>Select A Color</option>
+        <option value="Red" 
+        <%= @cat.color == "Red" ? "selected" : "" %>
+        >Red</option>
+        <option value="Green"
+        <%= @cat.color == "Green" ? "selected" : "" %>
+        >Green</option>
+        <option value="Yellow"
+        <%= @cat.color == "Yellow" ? "selected" : "" %>
+        >Yellow</option>
+        <option value="Blue"
+        <%= @cat.color == "Blue" ? "selected" : "" %>
+        >Blue</option>
+        <option value="Violet"
+        <%= @cat.color == "Violet" ? "selected" : "" %>
+        >Violet</option>
     </select>
 </label>
 
 <br>
 <label> Birth Date: 
-    <input type="date" name="cat[birth_date]">
+    <input type="date" name="cat[birth_date]" value= "<%= @cat.birth_date%>">
 </label>
 <br>
 <label> Description:
     <br>
-    <textarea name=cat[description]></textarea>
+    <textarea name=cat[description]><%= @cat.description %></textarea>
 </label>
 
 <br>
