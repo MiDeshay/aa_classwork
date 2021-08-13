@@ -1,1 +1,12 @@
 <h1> Index of All the Cats </h1>
+
+<ul>
+
+<% @cats.each do |cat| %>
+<li>
+<%= render 'cat', cat: cat, page: :index %>
+</li>
+<% end %>
+
+
+</ul>
