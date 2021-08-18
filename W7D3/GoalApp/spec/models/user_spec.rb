@@ -55,11 +55,19 @@ subject(:user) { User.new(
   end
 
   describe '#reset_session_token!' do
-    user = User.create(username: 'Capy', password: 'password4', email: 'capy@email.com', session_token: 'ascascqscsascxew')
+    user = User.create(username: 'Capy2', password: 'password4', email: 'capy@email.com', session_token: 'ascascqscsascxew')
     it 'should reset session token' do
       s1 = user.session_token
       user.reset_session_token!
       expect(user.session_token).not_to eq(s1)
+    end
+  end
+
+  describe '#ensure_session_token' do
+    user = User.new(username: 'Capy2', password: 'password4', email: 'capy@email.com', session_token: nil)
+    it 'should set a session token if nil' do
+      user.ensure_session_token
+      expect(user.session_token).not_to be_nil
     end
   end
   
