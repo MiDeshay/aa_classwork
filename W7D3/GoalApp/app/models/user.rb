@@ -5,6 +5,5 @@ class User < ApplicationRecord
 
     attr_accessor :password
 
-    has_many :goals
-      class_name: :Goal
+
 end
