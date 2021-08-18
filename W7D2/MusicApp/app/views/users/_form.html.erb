@@ -1,0 +1,14 @@
+<% if action == :edit ? method_v = "PATCH" : method_v = "POST" %>
+
+<form action="/users" method = "POST">
+<input type = "hidden" name = "_method" value = <%= method_v%>>
+<label>Email:
+    <input type= "text", value='<%user.email%>', name= "user[email]" >
+</label>
+
+<label>Password:
+    <input type= "password", value='<%user.password%>', name= "user[email]" >
+</label>
+
+<input type= "submit" value= "Join">
+</form>
