@@ -7,5 +7,5 @@ RSpec.describe User, type: :model do
     password: 'password',
   ) }
 
-  it ""
+  it {should validate_presence_of(:username)}
 end
