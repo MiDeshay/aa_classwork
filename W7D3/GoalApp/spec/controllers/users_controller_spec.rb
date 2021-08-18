@@ -43,12 +43,21 @@ RSpec.describe UsersController, type: :controller do
               password: '',
               email: 'capy4@capy.com'
             } }
-            expect(reponse).to render_template(:new)
+            expect(response).to render_template(:new)
             expect(flash[:errors]).to be_present
           end
         end
         
     end
+
+    describe 'GET #new' do
+        it 'renders the new template' do
+            get :new
+            expect(response).to render_template(:new)
+        end
+    end
+
+  #describe
 
 
 end

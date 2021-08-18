@@ -5,9 +5,14 @@ class UsersController < ApplicationController
     render :index
   end
 
+  def new
+    @user = User.new
+    render :new
+  end
+
   def create
-    @user = User.find_by_credentials(params[:username], params[:password])
-    if @user
+    @user = User.new(user_params)
+    if @user.save
       session[:session_token] = @user.reset_session_token!
       redirect_to user_url(@user)
     else
@@ -16,6 +21,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # private
-  # def user
+  private
+  def user_params
+    self.params.require(:user).permit(:username, :password, :email)
+  end
 end
