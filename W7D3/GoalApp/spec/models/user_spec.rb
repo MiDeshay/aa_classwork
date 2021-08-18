@@ -19,7 +19,7 @@ subject(:user) { User.new(
   it {should validate_length_of(:password).is_at_least(6)}
 
 
-  describe 'User::find_by_credentials' do
+  describe '::find_by_credentials' do
     subject(:user) { User.create(
       username: 'Eli',
       email: 'eli@capy.com',
@@ -42,13 +42,25 @@ subject(:user) { User.new(
     end
   end
 
-  describe 'User#password=' do
+  describe '#password=' do
     user = User.create(username: 'Capy', password: 'password4', email: 'capy@email.com', session_token: 'ascascqscsascxew')
     it 'should save a BCrypt password to self.password_digest' do
-
+      password_digest = user.password = (user.password)
+      expect(user.password = user.password).to eq(password_digest)
     end
+    it "should set the instance variable password = input password" do
+      password_digest = user.password = (user.password)
+      expect(user.instance_variable_get(:@password)).to eq('password4')
+    end
+  end
 
-    it ''
+  describe '#reset_session_token!' do
+    user = User.create(username: 'Capy', password: 'password4', email: 'capy@email.com', session_token: 'ascascqscsascxew')
+    it 'should reset session token' do
+      s1 = user.session_token
+      user.reset_session_token!
+      expect(user.session_token).not_to eq(s1)
+    end
   end
   
 end
