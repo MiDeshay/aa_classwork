@@ -28,9 +28,9 @@ subject(:user) { User.new(
     ) }
     context 'valid username and password'  do
       it 'should return the user ' do
-        eli = User.find_by_credentials('Eli', 'password')
-        p user
-        p eli
+        eli = User.find_by_credentials(user.username, 'password')
+    
+      
         expect(eli.username).to eq(user.username)
         expect(user.password_digest).to eq(eli.password_digest)
       end
@@ -40,6 +40,15 @@ subject(:user) { User.new(
         expect(User.find_by_credentials('Garbage', 'password3')).to be_nil
       end
     end
+  end
+
+  describe 'User#password=' do
+    user = User.create(username: 'Capy', password: 'password4', email: 'capy@email.com', session_token: 'ascascqscsascxew')
+    it 'should save a BCrypt password to self.password_digest' do
+
+    end
+
+    it ''
   end
   
 end
