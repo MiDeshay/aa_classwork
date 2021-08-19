@@ -58,15 +58,16 @@ RSpec.describe UsersController, type: :controller do
     end
 
   describe 'GET #edit' do
-    # it 'finds the user' do
-    #   get :edit
-    #   expect(self.instance_variable_get(:@user))
-    # end
     it 'renders the edit template' do
-      get :edit, :id => 1
+      get :edit, params: {id: 1}
       expect(response).to render_template(:edit)
     end
   end
 
+#   describe 'GET #show' do
+#     it "renders the specified user's show page" do
+#         get :show, params: {id: }
+#      end
+#   end
 
 end
