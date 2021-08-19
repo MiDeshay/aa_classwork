@@ -57,7 +57,16 @@ RSpec.describe UsersController, type: :controller do
         end
     end
 
-  #describe
+  describe 'GET #edit' do
+    # it 'finds the user' do
+    #   get :edit
+    #   expect(self.instance_variable_get(:@user))
+    # end
+    it 'renders the edit template' do
+      get :edit, :id => 1
+      expect(response).to render_template(:edit)
+    end
+  end
 
 
 end
