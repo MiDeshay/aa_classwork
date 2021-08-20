@@ -1,10 +1,11 @@
 
 <% action == :edit ? action_v = edit_user_url(user) : action_v = new_user_url  %>
-<% action == :edit ? method_v = "PATCH" : method_v = "POST" %>
+<% action == :edit ? method_v = "PATCH" : method_v = "GET" %>
 <% action == :edit ? button_v = "Update" : button_v = "Sign Up." %>
 
 <form action="<%= action_v %>" method="POST">
-<input type="hidden" name="_method" value= "<%= method_v%>" >
+<input type="hidden" name="_method" value= "<%= method_v%>">
+<input type="hidden" name="authenticity_token" method="<%= form_authenticity_token %>">
 
 <label>Username:
 <input type="text" name="user[username]" value="<%= user.username %>">
