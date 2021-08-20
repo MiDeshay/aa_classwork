@@ -1,0 +1,68 @@
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 25px;
+}
+
+ul {
+    display: flex;
+    align-items: flex-start;
+    font-weight: 800;
+}
+
+ul > li{
+    padding: 5px;
+}
+
+.right-nav button:hover {
+    background: $darkest-blue;
+}
+
+.right-nav button{
+    background: $light-blue;
+    color: $lightest-blue;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 6px;
+    padding-left: 6px;
+    border-radius: 3px;
+}
+
+.right-nav li {
+    
+}
+
+.gear > button {
+    background: white;
+    color: black;
+}
+
+.gear > div{
+    display: none;
+}
+
+.gear > div:hover{
+    display: block;
+}
+
+.gear > button:hover {
+    background: $light-gray;
+}
+
+
+
+.left-nav i {
+    margin-right: 5px;
+}
+
+.left-nav li:hover {
+    background: $light-gray;
+    border-radius: 3px;
+}
+
+.fas {
+    font-size: 12px;
+}
