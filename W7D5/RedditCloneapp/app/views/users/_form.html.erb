@@ -1,0 +1,19 @@
+
+<% action == :edit ? action_v = edit_user_url(user) : action_v = new_user_url  %>
+<% action == :edit ? method_v = "PATCH" : method_v = "POST" %>
+<% action == :edit ? button_v = "Update" : button_v = "Sign Up." %>
+
+<form action="<%= action_v %>" method="POST">
+<input type="hidden" name="_method" value= "<%= method_v%>" >
+
+<label>Username:
+<input type="text" name="user[username]" value="<%= user.username %>">
+</label>
+
+<label>Password:
+<input type="password" name="user[password]" >
+</label>
+
+
+<input type="submit" value = "<%= button_v %>">
+</form>
