@@ -1,6 +1,6 @@
 
-<% action == :edit ? action_v = edit_user_url(user) : action_v = new_user_url  %>
-<% action == :edit ? method_v = "PATCH" : method_v = "GET" %>
+<% action == :edit ? action_v = user_url(user) : action_v = users_url  %>
+<% action == :edit ? method_v = "PATCH" : method_v = "POST" %>
 <% action == :edit ? button_v = "Update" : button_v = "Sign Up." %>
 
 <form action="<%= action_v %>" method="POST">
