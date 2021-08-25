@@ -100,7 +100,7 @@ Board.prototype.capturedPiece = function (arr, color){
       }
     }
   })
-  return false;
+  return false; 
 }
 
 /**
