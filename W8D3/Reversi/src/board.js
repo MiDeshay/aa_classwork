@@ -147,10 +147,18 @@ Board.prototype.validMove = function (pos, color) {
   if (!this.isOccupied(pos)){
     return false;
   }
-  let arr = []; 
+  
+
   Board.DIRS.forEach(dir => {
-    arr.push(this._positionsToFlip(pos, color, dir));
+    let temp = this._positionsToFlip(pos, color, dir);
+    if (temp.length > 0){
+      return true
+    }
   })
+
+  return false;
+
+  
 };
 
 /**
