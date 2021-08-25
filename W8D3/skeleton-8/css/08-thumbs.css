@@ -1,0 +1,25 @@
+/* PHASE 2: Thumbs */
+
+.thumb{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.row li{
+    padding-right: 10px;
+}
+
+.thumb img{
+    display: block;
+    max-width: 60px;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid black;
+}
