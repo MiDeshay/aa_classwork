@@ -117,17 +117,26 @@ Board.prototype.capturedPiece = function (arr, color){
  * Returns empty array if no pieces of the opposite color are found.
  */
 Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
-  if(piecesToFlip === undefined){
-    piecesToFlip = [];
-  }else{
-    piecesToFlip.push(pos);
-  }
 
   if(this.isMine(pos, color)){
     return piecesToFlip;
   }else if(!this.isValidPos(pos) || !this.isOccupied(pos) || !this.capturedPiece(piecesToFlip, color)){ 
     return [];
   }
+
+  if(!this.isMine(pos, color)){
+    piecesToFlip.push(pos);
+  }
+
+  let new_row = pos[0] + dir[0];
+  let new_col = pos[1] + dir[1];
+
+  new_pos = [new_row, new_col];
+
+  this._positionsToFlip(new_pos, color, dir, piecesToFlip)
+
+
+
 };
 
 /**
