@@ -88,6 +88,21 @@ Board.prototype.isOccupied = function (pos) {
   }
 };
 
+Board.prototype.capturedPiece = function (arr, color){
+  arr.forEach(piece => {
+    if(color === "white"){
+      if(piece.color === "black"){
+        return true;
+      }
+    }else{
+      if(piece.color === "white"){
+        return true ;
+      }
+    }
+  })
+  return false;
+}
+
 /**
  * Recursively follows a direction away from a starting position, adding each
  * piece of the opposite color until hitting another piece of the current color.
@@ -110,10 +125,8 @@ Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
 
   if(this.isMine(pos, color)){
     return piecesToFlip;
-  }else if(!this.isValidPos(pos) || !this.isOccupied(pos)){ 
+  }else if(!this.isValidPos(pos) || !this.isOccupied(pos) || !this.capturedPiece(piecesToFlip, color)){ 
     return [];
-  }
-
   }
 };
 
