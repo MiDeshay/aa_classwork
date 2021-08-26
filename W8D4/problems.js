@@ -9,12 +9,27 @@ class Clock {
         setInterval(this._tick, 1000); 
     }
 
-    printTime (){
+    printTime(){
         console.log(`${this.hours}:${this.minutes}:${this.seconds}`);
     }
 
     _tick(){
-        
+        this.seconds += 1;
+        if (this.seconds > 60){
+            this.seconds = this.seconds % 60;
+            this.minutes += 1;
+            if (this.minutes > 60){
+                this.minutes = this.minutes % 60;
+                this.hours += 1;
+                if (this.hours > 24){
+                    this.hours = this.hours % 24;
+                }
+            }
+
+        }
+        this.printTime();
     }
     
 }
+
+const clock = new Clock();
