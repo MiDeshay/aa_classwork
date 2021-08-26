@@ -6,7 +6,8 @@ class Clock {
         this.seconds = date.getSeconds();
          
         this.printTime();
-        setInterval(this._tick, 1000); 
+        const clockTick = this._tick.bind(this);
+        setInterval(clockTick, 1000); 
     }
 
     printTime(){
