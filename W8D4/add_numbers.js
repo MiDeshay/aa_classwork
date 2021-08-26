@@ -10,15 +10,15 @@ function addNumbers(sum, numsLeft, completionCallback){
             const num = parseInt(number);
             sum += num;
             console.log(sum);
-            numsLeft -= 1;
-            reader.close();
+    
+            addNumbers(sum, numsLeft-1, completionCallback);
         })
-        } else if (numsLeft === 0){
-            completionCallback(sum);
-        }else{
-            console.log("Yes");
-        addNumbers(sum, numsLeft-1, completionCallback)
+    } else {
+        completionCallback(sum);
     }
 }
 
-addNumbers(0, 3, sum => console.log(`Total Sum: ${sum}`));
+addNumbers(0, 3, function (sum){ 
+    console.log(`Total Sum: ${sum}`)
+    reader.close() 
+});
