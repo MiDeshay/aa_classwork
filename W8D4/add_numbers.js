@@ -11,6 +11,14 @@ function addNumbers(sum, numsLeft, completionCallback){
             sum += num;
             console.log(sum);
             numsLeft -= 1;
+            reader.close();
         })
+        } else if (numsLeft === 0){
+            completionCallback(sum);
+        }else{
+            console.log("Yes");
+        addNumbers(sum, numsLeft-1, completionCallback)
     }
 }
+
+addNumbers(0, 3, sum => console.log(`Total Sum: ${sum}`));
