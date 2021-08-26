@@ -6,7 +6,7 @@ const reader = readline.createInterface({
 });
 
 function askIfGreaterThan(el1, el2, callback){
-    reader.question("Is el1 > el2 ? : ",  response => {
+    reader.question(`Is ${el1} > ${el2}?: `,  response => {
         if (response === "yes"){
             callback(true);
         }else{
@@ -15,14 +15,19 @@ function askIfGreaterThan(el1, el2, callback){
     })
 }
 
-askIfGreaterThan(3, 5, variable  => {
-    console.log(variable);
-    reader.close();
-})
+// askIfGreaterThan(3, 5, variable  => {
+//     console.log(variable);
+//     reader.close();
+// })
+
+function swap(isGreaterThan){
+
+}
 
 function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop){
     if (i === arr.length - 1){
         outerBubbleSortLoop(madeAnySwaps);
+    }else{
         
     }
 }
