@@ -20,14 +20,22 @@ function askIfGreaterThan(el1, el2, callback){
 //     reader.close();
 // })
 
-function swap(isGreaterThan){
-
-}
 
 function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop){
     if (i === arr.length - 1){
-        outerBubbleSortLoop(madeAnySwaps);
-    }else{
-        
+            outerBubbleSortLoop(madeAnySwaps);
     }
+
+        askIfGreaterThan(arr[i], arr[i + 1], function (isGreaterThan){
+            if (isGreaterThan){
+                const temporary = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temporary;
+            }
+
+        }
+        )
 }
+
+
+fjaslfdjsldfjsdl
