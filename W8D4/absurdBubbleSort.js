@@ -18,6 +18,8 @@ function askIfGreaterThan(el1, el2, callback){
 
 
 function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop){
+    console.log(i);
+    console.log(arr.length - 1)
     if (i === arr.length - 1){
         outerBubbleSortLoop(madeAnySwaps);
     } else {
@@ -27,13 +29,13 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop){
             const temporary = arr[i];
             arr[i] = arr[i + 1];
             arr[i + 1] = temporary;
+            innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop );
+        }else{
+            innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop );
         }
     })
-        innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop );
+        
     }
-
-  
-
 
 }
 // function absurdBubbleSort(arr, sortCompletionCallback){
