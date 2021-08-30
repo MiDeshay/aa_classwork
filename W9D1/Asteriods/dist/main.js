@@ -9,13 +9,23 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/asteroid.js":
+/*!*************************!*\
+  !*** ./src/asteroid.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\n\n\n\n\nfunction Asteroid(position) {\n    \n    this.position = position;\n    this.velocity = Util.randomVec(3);\n    this.radius = 25; \n\n}\n\nUtil.inherits(Asteroid, MovingObject);\n\n\n\nAsteroid.prototype.constructor = function(pos) {\n    //super(pos, Util.randomVec(3) , 25, \"#DCDCDC\")\n   \n}\n\nmodele.exports = Asteroid;\n\n//# sourceURL=webpack:///./src/asteroid.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\") \nwindow.MovingObject = MovingObject;\n\nconst Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\")\nwindow.Util = Util\n\nwindow.addEventListener('DOMContentLoaded', (event) => {\n    let canvasEl = document.getElementById('game-canvas');\n    let canvasContext = canvasEl.getContext(\"2d\");\n}) \n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\") \nwindow.MovingObject = MovingObject;\n\nconst Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\")\nwindow.Util = Util;\n\nconst Asteroid = __webpack_require__(/*! ./asteroid.js */ \"./src/asteroid.js\")\nwindow.Asteroid = Asteroid;\n\nwindow.addEventListener('DOMContentLoaded', (event) => {\n    let canvasEl = document.getElementById('game-canvas');\n    let canvasContext = canvasEl.getContext(\"2d\");\n}) \n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -35,7 +45,7 @@ eval("function MovingObject(positon, velocity, radius, color) {\n    this.posito
   \*********************/
 /***/ ((module) => {
 
-eval("\nconst Util = {\n    inherits(childClass, parentClass) {\n        function Surrogate(){};\n        Surrogate.prototype = parentClass.prototype;\n        childClass.prototype = new Surrogate();\n        childClass.prototype.constructor = childClass;\n    }\n}\n\n module.exports = Util\n\n//# sourceURL=webpack:///./src/util.js?");
+eval("\nconst Util = {\n    inherits(childClass, parentClass) {\n        function Surrogate(){};\n        Surrogate.prototype = parentClass.prototype;\n        childClass.prototype = new Surrogate();\n        childClass.prototype.constructor = childClass;\n    },\n\n    randomVec(length) {\n          const deg = 2 * Math.PI * Math.random();\n          return Util.scale([Math.sin(deg), Math.cos(deg)], length);\n    },\n        \n    scale(vec, m) {\n          return [vec[0] * m, vec[1] * m];\n    }\n    \n}\n\n module.exports = Util\n\n//# sourceURL=webpack:///./src/util.js?");
 
 /***/ })
 
