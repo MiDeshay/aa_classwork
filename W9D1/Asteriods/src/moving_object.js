@@ -21,4 +21,10 @@ MovingObject.prototype.draw = function (ctx){
     ctx.fill();
 }
 
+MovingObject.prototype.move = function(){
+    this.positon[0] += this.velocity[0];
+    this.positon[1] += this.velocity[1];
+
+}
+
 module.exports = MovingObject;

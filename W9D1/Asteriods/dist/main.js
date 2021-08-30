@@ -25,7 +25,7 @@ eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src
   \******************************/
 /***/ ((module) => {
 
-eval("function MovingObject(positon, velocity, radius, color) {\n    this.positon = positon;\n    this.velocity = velocity;\n    this.radius = radius;\n    this.color = color;\n}\n\n\nMovingObject.prototype.draw = function (ctx){\n    ctx.fillStyle = this.color;\n    ctx.beginPath();\n\n    ctx.arc(\n        this.positon[0],\n        this.positon[1],\n        this.radius,\n        0,\n        2 * Math.PI,\n        false\n    );\n    ctx.fill();\n}\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
+eval("function MovingObject(positon, velocity, radius, color) {\n    this.positon = positon;\n    this.velocity = velocity;\n    this.radius = radius;\n    this.color = color;\n}\n\n\nMovingObject.prototype.draw = function (ctx){\n    ctx.fillStyle = this.color;\n    ctx.beginPath();\n\n    ctx.arc(\n        this.positon[0],\n        this.positon[1],\n        this.radius,\n        0,\n        2 * Math.PI,\n        false\n    );\n    ctx.fill();\n}\n\nMovingObject.prototype.move = function(){\n    this.positon[0] += this.velocity[0];\n    this.positon[1] += this.velocity[1];\n\n}\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ })
 
