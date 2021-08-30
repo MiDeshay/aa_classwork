@@ -1,8 +1,8 @@
-function MovingObject(positon, velocity, radius, color) {
-    this.positon = positon;
-    this.velocity = velocity;
-    this.radius = radius;
-    this.color = color;
+function MovingObject(optionsHash) {
+    this.position = optionsHash["position"];
+    this.velocity = optionsHash["velocity"];
+    this.radius = optionsHash["radius"];
+    this.color = optionsHash["color"];
 }
 
 
@@ -11,8 +11,8 @@ MovingObject.prototype.draw = function (ctx){
     ctx.beginPath();
 
     ctx.arc(
-        this.positon[0],
-        this.positon[1],
+        this.position[0],
+        this.position[1],
         this.radius,
         0,
         2 * Math.PI,
@@ -22,8 +22,8 @@ MovingObject.prototype.draw = function (ctx){
 }
 
 MovingObject.prototype.move = function(){
-    this.positon[0] += this.velocity[0];
-    this.positon[1] += this.velocity[1];
+    this.position[0] += this.velocity[0];
+    this.position[1] += this.velocity[1];
 
 }
 
