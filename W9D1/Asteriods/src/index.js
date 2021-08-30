@@ -1,5 +1,7 @@
 const MovingObject = require("./moving_object.js") 
 window.MovingObject = MovingObject;
 
-obj = new MovingObject(00, 00, 00, 00)
-// console.log(obj)
+window.addEventListener('DOMContentLoaded', (event) => {
+    let canvasEl = document.getElementById('game-canvas');
+    let canvasContext = canvasEl.getContext("2d");
+}) 
