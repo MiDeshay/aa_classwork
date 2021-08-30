@@ -7,6 +7,9 @@ window.Util = Util;
 const Asteroid = require("./asteroid.js")
 window.Asteroid = Asteroid;
 
+const Game = require("./game.js")
+window.Game = Game;
+
 window.addEventListener('DOMContentLoaded', (event) => {
     let canvasEl = document.getElementById('game-canvas');
     let canvasContext = canvasEl.getContext("2d");
