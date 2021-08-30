@@ -24,16 +24,15 @@ Game.prototype.addAsteroids = function(){
 
 
 Game.prototype.draw = function(ctx){
-    // let canvasEl = document.getElementById('game-canvas');
-    // let canvasContext = canvasEl.getContext("2d");
-    ctx.clearRect(0, 0, ctx.width, ctx.height);
+    let canvasEl = document.getElementById('game-canvas');
+    ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
 
     for(let i = 0; i < this.asteroids.length; i++) {
         this.asteroids[i].draw(ctx);
     }
 }
 
-Game.prototype.move = function() {
+Game.prototype.moveObjects = function() {
     for(let i = 0; i < this.asteroids.length; i++) {
         this.asteroids[i].move();
     }
