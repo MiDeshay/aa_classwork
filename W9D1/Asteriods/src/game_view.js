@@ -14,4 +14,6 @@ GameView.prototype.start = function(){
     } , 20);
 }
 
+
+
 module.exports = GameView;
