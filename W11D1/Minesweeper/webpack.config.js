@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = { // es5 style
 	context: __dirname,
-	entry: './entry.jsx',
+	entry: './react_minesweeper.jsx',
 	output: {			// where webpack should output hte bundled files
 		path: path.resolve(__dirname),
 		// use path.resolve() to resolve our paths into an absolute path.
