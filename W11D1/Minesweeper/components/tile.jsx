@@ -6,24 +6,27 @@ class Tile extends React.Component{
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
-        this.props.update(this.props.tile, true);
+    handleClick(e) {
+        this.props.update(this.props.tile, e.altKey);
     }
 
     render(){
         let renderState = "⬛";
         let tileClassName = "unexplored";
         if (this.props.tile.explored) {
-            renderState = this.props.tile.adjacentBombCount();
             tileClassName = "explored";
+
+            if (this.props.tile.bombed ) {
+            renderState = "💣";
+            }else{
+                renderState = this.props.tile.adjacentBombCount();
+            }
         } else if (this.props.tile.flagged) {
             renderState = "🚩";
-        } else if (this.props.tile.bombed && this.props.tile.lost) {
-            renderState = "💣";
-        }
+        }  
 
         return(
-            <div onClick={this.handleClick} className="tile" className={tileClassName}>
+            <div onClick={(e) => {this.handleClick(e)}} className="tile" className={tileClassName}>
                 {renderState}
             </div>
         )
