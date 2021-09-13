@@ -3,32 +3,28 @@ import React from "react";
 class Tile extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {
-            bombed: props.board.grid[props.x][props.y].bombed,
-            explored: props.board.grid[props.x][props.y].explored,
-            flagged: props.board.grid[props.x][props.y].flagged,
-            lost: props.lost
-        }
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    
+    handleClick() {
+        this.props.update(this.props.tile, true);
+    }
 
     render(){
-
-        var renderState = "⬛";
-        var tileClassName = "unexplored";
-        if (this.state.explored) {
-            renderState = this.props.board.grid[props.x][props.y].adjacentBombCount();
+        let renderState = "⬛";
+        let tileClassName = "unexplored";
+        if (this.props.tile.explored) {
+            renderState = this.props.tile.adjacentBombCount();
             tileClassName = "explored";
-        } else if (this.state.flagged) {
+        } else if (this.props.tile.flagged) {
             renderState = "🚩";
-        } else if (this.state.bombed && this.state.lost) {
+        } else if (this.props.tile.bombed && this.props.tile.lost) {
             renderState = "💣";
         }
 
         return(
-            <div className="tile" className={tileClassName} >
-            {renderState}
+            <div onClick={this.handleClick} className="tile" className={tileClassName}>
+                {renderState}
             </div>
         )
     }

@@ -1,18 +1,25 @@
 import React from "react";
-import * as Minesweeper from "./minesweeper"
+import * as Minesweeper from "./minesweeper";
 import Board from "./board";
 
 class Game extends React.Component{
 
   constructor(props){
-    super(props)
-   this.state = {board: new Minesweeper.Board(10, 5)};
-   //this.state = {test: "1"}
-   this.updateGame.bind(this);
+    super(props);
+    const board = new Minesweeper.Board(10, 5);
+    this.state = {board: board};
+    //this.state = {test: "1"}
+    this.updateGame = this.updateGame.bind(this);
   }
 
-  updateGame(){
-    
+  updateGame(tile, flagged){
+    console.log(tile);
+    if (flagged) {
+      tile.toggleFlag();
+    } else {
+      tile.explore();
+    }
+    this.setState({ board: this.state.board });
   }
   
   render () {
