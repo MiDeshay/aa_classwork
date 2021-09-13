@@ -16,8 +16,10 @@ class Tile extends React.Component{
     render(){
 
         var renderState = "⬛";
+        var tileClassName = "unexplored";
         if (this.state.explored) {
-            renderState = "⬜";
+            renderState = this.props.board.grid[props.x][props.y].adjacentBombCount();
+            tileClassName = "explored";
         } else if (this.state.flagged) {
             renderState = "🚩";
         } else if (this.state.bombed && this.state.lost) {
@@ -25,9 +27,9 @@ class Tile extends React.Component{
         }
 
         return(
-            <>
+            <div className="tile" className={tileClassName} >
             {renderState}
-            </>
+            </div>
         )
     }
 }

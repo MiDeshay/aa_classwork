@@ -1,0 +1,15 @@
+.explored {
+    border-style: inset;
+}
+
+.unexplored{
+    border-style: outset;
+}
+
+.row{
+    display: flex;
+}
+
+.tile{
+
+}
