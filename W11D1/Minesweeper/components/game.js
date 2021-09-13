@@ -18,6 +18,7 @@ class Game extends React.Component{
   render () {
     const CurrentBoard = this.state.board;
     return (
+      // <div>{this.state.board.grid.map(row, i => <div>{row}</div>)}</div>
    <Board board={CurrentBoard} update={this.updateGame}/>
     );
   }
