@@ -10,6 +10,8 @@ class Game extends React.Component{
     this.state = {board: board};
     //this.state = {test: "1"}
     this.updateGame = this.updateGame.bind(this);
+    this.renderWinState = this.renderWinState.bind(this);
+    this.resetGame = this.resetGame.bind(this);
   }
 
   updateGame(tile, flagged){
@@ -30,14 +32,21 @@ class Game extends React.Component{
     this.setState({ board: this.state.board });
   }
 
+  resetGame() {
+      this.setState({ board: new Minesweeper.Board(10, 5)});
+      return ;
+  }
+
   renderWinState(){
-    if (this.state.board.win()){
+    if (this.state.board.won()){
       return (<div className="winState">
-          You Are The MineSweep!
+        <div>You Are The MineSweep!
+        <button onClick={this.resetGame}>Reset</button></div>
       </div>)
     }else if (this.state.board.lost()){
       return (<div className="loseState">
-          You Blew It Up!
+          <div>You Blew It Up!
+          <button onClick={this.resetGame}>Reset</button></div>
         </div>)
     }else{
       return null;
