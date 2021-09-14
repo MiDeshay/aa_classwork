@@ -12,9 +12,9 @@ class Tile extends React.Component{
 
     render(){
         let renderState = "⬛";
-        let tileClassName = "unexplored";
+        let tileClassName = "tile unexplored";
         if (this.props.tile.explored) {
-            tileClassName = "explored";
+            tileClassName = "tile explored";
 
             if (this.props.tile.bombed ) {
             renderState = "💣";
@@ -26,7 +26,7 @@ class Tile extends React.Component{
         }  
 
         return(
-            <div onClick={(e) => {this.handleClick(e)}} className="tile" className={tileClassName}>
+            <div onClick={(e) => {this.handleClick(e)}} className={tileClassName}>
                 {renderState}
             </div>
         )

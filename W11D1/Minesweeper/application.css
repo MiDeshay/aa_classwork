@@ -11,5 +11,41 @@
 }
 
 .tile{
+    display: block;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
 
+.winState {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0,0,0,0.8);
+}
+
+.winState div {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.loseState {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0,0,0,0.8);
+}
+
+.loseState div {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
 }
