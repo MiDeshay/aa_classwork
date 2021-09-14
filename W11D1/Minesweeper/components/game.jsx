@@ -10,6 +10,7 @@ class Game extends React.Component{
     this.state = {board: board};
     //this.state = {test: "1"}
     this.updateGame = this.updateGame.bind(this);
+    
   }
 
   updateGame(tile, flagged){
