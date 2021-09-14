@@ -79,6 +79,23 @@ __webpack_require__.r(__webpack_exports__);
 //     }
 //   };
 
+[{
+  id: 1,
+  title: "wash car",
+  body: "with soap",
+  done: false
+}, {
+  id: 2,
+  title: "wash dog",
+  body: "with shampoo",
+  done: true
+}, {
+  id: 3,
+  title: "car dog",
+  body: "with leather",
+  done: true
+}];
+
 var todosReducer = function todosReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
@@ -87,7 +104,10 @@ var todosReducer = function todosReducer() {
 
   switch (action.type) {
     case _actions_todo_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_TODOS:
-      newState[action.todos.id] = action.todos;
+      console.log(action);
+      action.todos.forEach(function (e) {
+        newState[e.id] = e;
+      });
       return newState;
 
     case _actions_todo_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_TODO:
@@ -30797,6 +30817,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var store = (0,_frontend_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
   window.store = store;
   window.receiveTodos = _frontend_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__.receiveTodos;
+  window.receiveTodo = _frontend_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__.receiveTodo;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Todos App"), document.getElementById('root'));
 });
 })();
