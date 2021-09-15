@@ -16,27 +16,6 @@ import { RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO } from "../actions/todo_action
 //     }
 //   };
 
-        [{
-          id: 1,
-          title: "wash car",
-          body: "with soap",
-          done: false
-        },
-        {
-          id: 2,
-          title: "wash dog",
-          body: "with shampoo",
-          done: true
-        },
-        {
-            id: 3,
-            title: "car dog",
-            body: "with leather",
-            done: true
-          }
-    ]
-
-
 const todosReducer = (state= {}, action) => {
     Object.freeze(state);
     const newState = Object.assign({}, state)

@@ -154,6 +154,23 @@ var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
 
 /***/ }),
 
+/***/ "./frontend/reducers/selectors.js":
+/*!****************************************!*\
+  !*** ./frontend/reducers/selectors.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "allTodos": () => (/* binding */ allTodos)
+/* harmony export */ });
+var allTodos = function allTodos(state) {
+  return Object.values(state.todos);
+};
+
+/***/ }),
+
 /***/ "./frontend/reducers/steps_reducer.js":
 /*!********************************************!*\
   !*** ./frontend/reducers/steps_reducer.js ***!
@@ -226,23 +243,6 @@ __webpack_require__.r(__webpack_exports__);
 //       done: true
 //     }
 //   };
-
-[{
-  id: 1,
-  title: "wash car",
-  body: "with soap",
-  done: false
-}, {
-  id: 2,
-  title: "wash dog",
-  body: "with shampoo",
-  done: true
-}, {
-  id: 3,
-  title: "car dog",
-  body: "with leather",
-  done: true
-}];
 
 var todosReducer = function todosReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -33883,12 +33883,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _frontend_components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./frontend/components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _frontend_store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./frontend/store/store */ "./frontend/store/store.js");
+/* harmony import */ var _frontend_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./frontend/reducers/selectors */ "./frontend/reducers/selectors.js");
 
 
 
 
+
+var preloadedState = {
+  todos: {
+    1: {
+      id: 1,
+      title: 'wash car',
+      body: 'with soap',
+      done: false
+    },
+    2: {
+      id: 2,
+      title: 'wash dog',
+      body: 'with shampoo',
+      done: true
+    }
+  }
+};
 document.addEventListener("DOMContentLoaded", function () {
-  var store = (0,_frontend_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  var store = (0,_frontend_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState); //Debug
+
+  window.store = store;
+  window.allTodos = _frontend_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__.allTodos;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_frontend_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), document.getElementById('root'));
