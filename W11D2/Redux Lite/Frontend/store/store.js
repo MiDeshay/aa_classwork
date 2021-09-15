@@ -1,4 +1,4 @@
-class Store{
+export default class Store{
     constructor(rootReducer){
         this.rootReducer = rootReducer;
         this.state = {};
@@ -7,5 +7,8 @@ class Store{
     getState(){
         const curState = Object.assign({}, this.state);
         return curState;
+    }
+
+    dispatch(){
     }
 }
