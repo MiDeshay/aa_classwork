@@ -7,6 +7,6 @@ import configureStore from './frontend/store/store';
 
 document.addEventListener("DOMContentLoaded", ()=>{
     const store = configureStore()
-
+ 
     ReactDom.render(<Root store = {store}/> , document.getElementById('root'))
 })
