@@ -13,12 +13,13 @@ const preloadedState = {
             body: 'with soap',
             done: false
           },
-          2: {
+          
+        2: {
             id: 2,
             title: 'wash dog',
             body: 'with shampoo',
             done: true
-          },
+        },
     }
 }
 
