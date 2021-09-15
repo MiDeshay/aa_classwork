@@ -1,3 +1,5 @@
+import combineReducer from "../reducers/combine_reducer";
+
 export default class Store{
     constructor(rootReducer){
         this.rootReducer = rootReducer;
