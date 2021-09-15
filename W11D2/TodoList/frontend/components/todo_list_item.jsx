@@ -1,7 +1,14 @@
 import React from "react";
 
 export const TodoListItem = (props) => {
+
     return (
-        <li>{props.todo.title}</li>
+        <li>
+            Title: {props.todo.title}
+            <br/>
+            Body: {props.todo.body}
+            <br/>
+            Done: {props.todo.done.toString()}
+        </li>
     )
 }
