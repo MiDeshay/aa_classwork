@@ -4,6 +4,7 @@ export default class TodoListItem extends React.Component{
     constructor(props){
         super(props)
         this.todo = props.todo;
+        this.state = props.todo
         this.handleDone = this.handleDone.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     }
@@ -13,16 +14,15 @@ export default class TodoListItem extends React.Component{
     }
 
     handleDone(){
-        const newTodo = Object.assign({}, this.todo);
-        console.log(newTodo.done)
-        newTodo.done = !newTodo.done
-        console.log(newTodo.done) 
-        this.props.receiveTodo(newTodo);
+
+        this.setState({done: !this.state.done})
+        console.log(this.state.done)
+        this.props.receiveTodo(this.state);
     }
 
     render(){
         let done = "Done"
-        if(this.todo.done){
+        if(this.state.done){
             done = "Undo"
         }
         return (

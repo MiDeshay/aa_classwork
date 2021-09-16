@@ -380,6 +380,7 @@ var TodoListItem = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.todo = props.todo;
+    _this.state = props.todo;
     _this.handleDone = _this.handleDone.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
@@ -393,18 +394,18 @@ var TodoListItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleDone",
     value: function handleDone() {
-      var newTodo = Object.assign({}, this.todo);
-      console.log(newTodo.done);
-      newTodo.done = !newTodo.done;
-      console.log(newTodo.done);
-      this.props.receiveTodo(newTodo);
+      this.setState({
+        done: !this.state.done
+      });
+      console.log(this.state.done);
+      this.props.receiveTodo(this.state);
     }
   }, {
     key: "render",
     value: function render() {
       var done = "Done";
 
-      if (this.todo.done) {
+      if (this.state.done) {
         done = "Undo";
       }
 
