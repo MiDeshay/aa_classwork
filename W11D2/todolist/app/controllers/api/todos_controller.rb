@@ -6,7 +6,6 @@ class TodosController < ApplicationController
 
     def index
         render json: Todo.all
-
     end
 
 
@@ -21,11 +20,21 @@ class TodosController < ApplicationController
 
 
     def update
-
+        todo = Todo.find_by(id: params[:id])
+        if todo.update(todo_params)
+           render json: todo 
+        else 
+            render json: todo.errors.full_messages, status: :unprocessable_entity 
+        end  
     end
 
     def destroy
-
+        todo = Todo.find_by(id: params[:id])
+        if todo.destroy
+           render json: todo 
+        else 
+            render json: todo.errors.full_messages, status: :unprocessable_entity 
+        end  
     end
 
     private
