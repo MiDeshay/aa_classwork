@@ -346,8 +346,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -382,24 +380,39 @@ var TodoListItem = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.todo = props.todo;
+    _this.handleDone = _this.handleDone.bind(_assertThisInitialized(_this));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(TodoListItem, [{
+    key: "handleDelete",
+    value: function handleDelete() {
+      this.props.removeTodo(this.props.todo);
+    }
+  }, {
     key: "handleDone",
-    value: function handleDone() {}
+    value: function handleDone() {
+      var newTodo = Object.assign({}, this.todo);
+      console.log(newTodo.done);
+      newTodo.done = !newTodo.done;
+      console.log(newTodo.done);
+      this.props.receiveTodo(newTodo);
+    }
   }, {
     key: "render",
     value: function render() {
       var done = "Done";
 
-      if (!this.todo.done) {
-        "Undo", _readOnlyError("done");
+      if (this.todo.done) {
+        done = "Undo";
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "Title: ", this.todo.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Body: ", this.todo.body, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: this.handleDone
-      }, done));
+      }, done), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.handleDelete
+      }, "Delete Task"));
     }
   }]);
 
