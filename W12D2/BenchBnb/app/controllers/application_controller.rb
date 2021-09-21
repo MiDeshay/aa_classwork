@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
 
+    protect_from_forgery :false
+
     def login!(user)
       # set the session_token for the connection to be the 
       session[:session_token] = user.session_token
