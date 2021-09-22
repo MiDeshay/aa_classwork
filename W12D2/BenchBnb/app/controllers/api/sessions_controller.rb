@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
             render json: @user.errors.full_messages
         else 
             login!(@user)
-            redirect_to user_url(@user)
+            redirect_to api_user_url(@user)
         end
     end
 
