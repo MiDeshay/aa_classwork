@@ -1,22 +1,16 @@
 class Bench < ApplicationRecord
     validates :description, :lat, :lng, presence: true
 
-    def index
-        @benches = Bench.all
-        render :index
-    end
-
-    def create
-        @bench = Bench.new(bench_params)
-        if @bench.save
-            redirect_to api_benches
-        else
-            render json: @bench.full_messages
+   def self.in_bounds(bounds)
+        benches = []
+        self.all.each  do |bench|
+            if ((bench.lat < bounds.northEast.lat && bench.lat > bounds.southWest.lat)
+                && (bench.lng < bounds.northEast.lng && bench.lng > bounds.southWest.lng))
+                
+                benches.push(bench)
+            end
         end
-    end
 
-    private
-    def bench_params 
-        params.require(:bench).permit(:description, :lat, :lng)
-    end
+        benches
+   end
 end

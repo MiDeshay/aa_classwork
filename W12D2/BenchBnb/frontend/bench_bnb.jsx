@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { signUpUser, loginUser } from "./actions/session_actions";
 import Root from "./components/root"
 import {configureStore} from "./store/store"
+import {fetchBenches} from "./actions/bench_actions"
 
 
 
@@ -24,11 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
    
 
-
   window.getState = store.getState
-  window.dispatch = store.dispatch
-  window.signUpUser = signUpUser
-  window.loginUser = loginUser
+  window.dispatch = store.dispatch;
+  window.fetchBenches = fetchBenches;
   
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
